@@ -6,7 +6,7 @@
     <version>0.0.1</version>
     <packaging>war</packaging>
     <name>jee-onlineshop-ejb-0.0.1</name>
-    
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -15,7 +15,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -24,8 +24,8 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    
-     <build>
+
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

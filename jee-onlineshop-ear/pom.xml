@@ -4,7 +4,7 @@
     <groupId>ch.ffhs</groupId>
     <artifactId>jee-onlineshop-ear</artifactId>
     <version>0.0.1</version>
-    <packaging>war</packaging>
+    <packaging>ear</packaging>
     <name>jee-onlineshop-ear-0.0.1</name>
 
     <properties>
@@ -18,16 +18,18 @@
 
     <dependencies>
         <dependency>
+            <artifactId>jee-onlineshop-ejb-0.0.1</artifactId>
             <groupId>ch.ffhs</groupId>
-            <artifactId>jee-onlineshop-ejb</artifactId>
-            <version>0.0.1</version>
+            <scope>provided</scope>
             <type>ejb</type>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
+            <artifactId>jee-onlineshop-web-0.0.1</artifactId>
             <groupId>ch.ffhs</groupId>
-            <artifactId>jee-onlineshop-web</artifactId>
-            <version>0.0.1</version>
+            <scope>provided</scope>
             <type>war</type>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -80,6 +82,25 @@
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.glassfish.embedded</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>5.1</version>
+                <configuration>
+                    <port>8080</port>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <app>target/${project.build.finalName}.${project.packaging}</app>
+                            <contextRoot>/jee-onlineshop</contextRoot>
                         </configuration>
                     </execution>
                 </executions>
